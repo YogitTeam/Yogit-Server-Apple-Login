@@ -6,8 +6,8 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '17'
-targetCompatibility = '17'
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -33,6 +33,6 @@ compileJava.options.compilerArgs.addAll([
 		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED",
 ])
 
-compileJava {
-	options.compilerArgs.addAll(['--release', '8'])
-}
+//compileJava {
+//	options.compilerArgs.addAll(['--release', '11'])
+//}
