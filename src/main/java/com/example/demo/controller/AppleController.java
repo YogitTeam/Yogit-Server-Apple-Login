@@ -96,7 +96,12 @@ public class AppleController {
 
 
         String code = serviceResponse.getCode();
+        System.out.println(code);
+        System.out.println("4-------------");
+
         String client_secret = appleService.getAppleClientSecret(serviceResponse.getId_token());
+        System.out.println(client_secret);
+        System.out.println("5-------------");
 
 
 //        logger.debug("================================");
@@ -106,8 +111,7 @@ public class AppleController {
 //        logger.debug("================================");
 
         System.out.println(appleService.requestCodeValidations(client_secret, code, null));
-
-        System.out.println("4-------------");
+        System.out.println("6-------------");
 
         return appleService.requestCodeValidations(client_secret, code, null);
     }
