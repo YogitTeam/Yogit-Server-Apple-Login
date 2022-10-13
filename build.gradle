@@ -27,12 +27,12 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-//compileJava.options.compilerArgs.addAll([
-//		"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
-//		"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
-//		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED",
-//])
+compileJava.options.compilerArgs.addAll([
+		"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
+		"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
+		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED",
+])
 
-//compileJava {
-//	options.compilerArgs.addAll(['--release', '8'])
-//}
+compileJava {
+	options.compilerArgs.addAll(['--release', '8'])
+}
