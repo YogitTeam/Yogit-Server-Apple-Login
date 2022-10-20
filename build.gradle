@@ -31,14 +31,14 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-tasks.withType(JavaCompile){
-	options.compilerArgs.addAll([
-			"--add-exports=java.base/sun.security.provider=jdk.packager",
-			"--add-exports=java.base/sun.security.pkcs=jdk.packager",
-			"--add-exports=java.base/sun.security.util=jdk.packager",
-			"--add-exports=java.base/sun.security.x509=jdk.packager"
-	])
-}
+//tasks.withType(JavaCompile){
+//	options.compilerArgs.addAll([
+//			"--add-exports=java.base/sun.security.provider=jdk.packager",
+//			"--add-exports=java.base/sun.security.pkcs=jdk.packager",
+//			"--add-exports=java.base/sun.security.util=jdk.packager",
+//			"--add-exports=java.base/sun.security.x509=jdk.packager"
+//	])
+//}
 
 ////Note: these should be reflected in the module-info additions passed to the JDK
 //compileJava.options.compilerArgs.addAll([
@@ -56,11 +56,6 @@ tasks.withType(JavaCompile){
 
 
 
-//compileJava.options.compilerArgs.addAll([
-//		"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
-//		"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
-//		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED"
-//])
 
 //compileJava {
 //	options.compilerArgs.addAll(['--release', '17'])
