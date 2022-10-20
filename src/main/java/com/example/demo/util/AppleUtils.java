@@ -70,7 +70,7 @@ public class AppleUtils {
             SignedJWT signedJWT = SignedJWT.parse(id_token);
             ReadOnlyJWTClaimsSet payload = signedJWT.getJWTClaimsSet();
 
-            // EXP
+            // EXP 만료시간 검증
             Date currentTime = new Date(System.currentTimeMillis());
             if (!currentTime.before(payload.getExpirationTime())) {
                 return false;
