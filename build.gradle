@@ -33,10 +33,10 @@ tasks.named('test') {
 
 tasks.withType(JavaCompile){
 	options.compilerArgs.addAll([
-			"--add-exports=java.base/sun.security.provider=jdk.packager",
-			"--add-exports=java.base/sun.security.pkcs=jdk.packager",
-			"--add-exports=java.base/sun.security.util=jdk.packager",
-			"--add-exports=java.base/sun.security.x509=jdk.packager"
+			"--add-exports/java.base/sun.security.provider=ALL-UNNAMED",
+			"--add-exports/java.base/sun.security.pkcs=ALL-UNNAMED",
+			"--add-exports/java.base/sun.security.util=ALL-UNNAMED",
+			"--add-exports/java.base/sun.security.x509=ALL-UNNAMED"
 	])
 }
 
