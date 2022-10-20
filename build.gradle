@@ -6,8 +6,8 @@ plugins {
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 repositories {
 	mavenCentral()
@@ -31,28 +31,27 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-//tasks.withType(JavaCompile){
-//	options.compilerArgs.addAll([
-//			"--add-exports=java.base/sun.security.provider=ALL-UNNAMED",
-//			"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
-//			"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
-//			"--add-exports=java.base/sun.security.x509=ALL-UNNAMED"
-//	])
-//}
+tasks.withType(JavaCompile){
+	options.compilerArgs.addAll([
+			"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
+			"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
+			"--add-exports=java.base/sun.security.x509=ALL-UNNAMED"
+	])
+}
 
-////Note: these should be reflected in the module-info additions passed to the JDK
-compileJava.options.compilerArgs.addAll([
-		"--add-exports=java.base/sun.security.timestamp=ALL-UNNAMED",
-		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED",
-		"--add-exports=jdk.jdeps/com.sun.tools.jdeps=ALL-UNNAMED",
-		"--add-exports=jdk.jlink/jdk.tools.jlink.internal.packager=ALL-UNNAMED",
-		// Note: not in extras...
-		"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
-		"--add-exports=java.logging/java.util.logging=ALL-UNNAMED",
-		"--add-exports=java.base/sun.security.provider=ALL-UNNAMED",
-		"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
-		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED"
-])
+//////Note: these should be reflected in the module-info additions passed to the JDK
+//compileJava.options.compilerArgs.addAll([
+//		"--add-exports=java.base/sun.security.timestamp=ALL-UNNAMED",
+//		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED",
+//		"--add-exports=jdk.jdeps/com.sun.tools.jdeps=ALL-UNNAMED",
+//		"--add-exports=jdk.jlink/jdk.tools.jlink.internal.packager=ALL-UNNAMED",
+//		// Note: not in extras...
+//		"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
+//		"--add-exports=java.logging/java.util.logging=ALL-UNNAMED",
+//		"--add-exports=java.base/sun.security.provider=ALL-UNNAMED",
+//		"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
+//		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED"
+//])
 
 
 
