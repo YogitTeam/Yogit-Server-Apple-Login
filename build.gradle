@@ -31,6 +31,9 @@ compileJava.options.compilerArgs.addAll([
 		"--add-exports=java.base/sun.security.pkcs=ALL-UNNAMED",
 		"--add-exports=java.base/sun.security.util=ALL-UNNAMED",
 		"--add-exports=java.base/sun.security.x509=ALL-UNNAMED",
+		"--add-opens=java.base/sun.security.pkcs=ALL-UNNAMED",
+		"--add-opens=java.base/sun.security.util=ALL-UNNAMED",
+		"--add-opens=java.base/sun.security.x509=ALL-UNNAMED"
 ])
 
 //compileJava {
