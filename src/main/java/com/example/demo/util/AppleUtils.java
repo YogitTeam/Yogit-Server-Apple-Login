@@ -302,10 +302,12 @@ public class AppleUtils {
 
         try {
             SignedJWT signedJWT = SignedJWT.parse(id_token);
+            System.out.println("=====payload1"+signedJWT );
             ReadOnlyJWTClaimsSet getPayload = signedJWT.getJWTClaimsSet();
+            System.out.println("=====payload2" );
             ObjectMapper objectMapper = new ObjectMapper();
             Payload payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), Payload.class);
-
+            System.out.println("=====payload3"+payload );
             if (payload != null) {
                 return payload;
             }
