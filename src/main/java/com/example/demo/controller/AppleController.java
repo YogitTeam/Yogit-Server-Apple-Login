@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 
 @Controller
@@ -82,7 +83,7 @@ public class AppleController {
      */
     @PostMapping(value = "/redirect")
     @ResponseBody
-    public TokenResponse servicesRedirect(ServicesResponse serviceResponse) {
+    public TokenResponse servicesRedirect(ServicesResponse serviceResponse) throws NoSuchAlgorithmException {
 
         System.out.println("1-------------");
         if (serviceResponse == null) {
