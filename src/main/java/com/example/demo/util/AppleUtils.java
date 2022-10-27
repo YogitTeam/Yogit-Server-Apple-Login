@@ -15,6 +15,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.ReadOnlyJWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
+import net.minidev.json.JSONObject;
 import org.bouncycastle.util.io.pem.PemObject;
 import org.bouncycastle.util.io.pem.PemReader;
 import org.springframework.beans.factory.annotation.Value;
@@ -300,7 +301,7 @@ public class AppleUtils {
      * @param id_token
      * @return
      */
-    public Payload decodeFromIdToken(String id_token) {
+    public JSONObject decodeFromIdToken(String id_token) {
 
         try {
             SignedJWT signedJWT = SignedJWT.parse(id_token);
@@ -308,9 +309,11 @@ public class AppleUtils {
             ReadOnlyJWTClaimsSet getPayload = signedJWT.getJWTClaimsSet();
             System.out.println("=====payload2"+getPayload);
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT); // null 값 허용
-            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
-            Payload payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), Payload.class);
+//            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT); // null 값 허용
+//            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
+//            Payload payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), Payload.class);
+            JSONObject payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), JSONObject.class);
+
             System.out.println("=====payload3"+payload );
             if (payload != null) {
                 return payload;
