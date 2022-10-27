@@ -151,8 +151,10 @@ public class AppleUtils {
 //            JWSSigner jwsSigner = new ECDSASigner(ecPrivateKey.getS());
 //
 //            jwt.sign(jwsSigner);
-
+            System.out.println("=====새로운 시도 1=====");
             PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(readPrivateKey());
+            System.out.println("=====새로운 시도 1=====");
+
 
             try{
                 KeyFactory kf = KeyFactory.getInstance("EC");
@@ -182,15 +184,18 @@ public class AppleUtils {
      * @return Private Key
      */
     private byte[] readPrivateKey() {
+
         ClassPathResource resource = new ClassPathResource(KEY_PATH);
 
 
 //        Resource resource = new ClassPathResource(KEY_PATH);
         byte[] content = null;
-
+        System.out.println("=====새로운 시도 2=====");
         try (Reader keyReader = new InputStreamReader(resource.getInputStream());
+
              PemReader pemReader = new PemReader(keyReader)) {
             {
+                System.out.println("=====새로운 시도 3=====");
                 PemObject pemObject = pemReader.readPemObject();
                 content = pemObject.getContent();
             }
