@@ -161,6 +161,7 @@ public class AppleUtils {
                 System.out.println("=====새로운 시도 6=====");
                 ECPrivateKey ecPrivateKey = (ECPrivateKey) kf.generatePrivate(spec);
                 System.out.println("=====새로운 시도 7=====");
+                System.out.println("=====새로운 시도 7.5====="+ecPrivateKey.getS());
                 JWSSigner jwsSigner = new ECDSASigner(ecPrivateKey.getS());
                 System.out.println("=====새로운 시도 8=====");
                 jwt.sign(jwsSigner);

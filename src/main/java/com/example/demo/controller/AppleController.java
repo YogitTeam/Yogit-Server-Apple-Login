@@ -109,11 +109,11 @@ public class AppleController {
         System.out.println("6-------------");
 
 
-//        logger.debug("================================");
-//        logger.debug("id_token ‣ " + serviceResponse.getId_token());
-//        logger.debug("payload ‣ " + appleService.getPayload(serviceResponse.getId_token()));
-//        logger.debug("client_secret ‣ " + client_secret);
-//        logger.debug("================================");
+        logger.debug("================================");
+        logger.debug("id_token ‣ " + serviceResponse.getId_token());
+        logger.debug("payload ‣ " + appleService.getPayload(serviceResponse.getId_token()));
+        logger.debug("client_secret ‣ " + client_secret);
+        logger.debug("================================");
 
         System.out.println(appleService.requestCodeValidations(client_secret, code, null));
         System.out.println("7-------------");
