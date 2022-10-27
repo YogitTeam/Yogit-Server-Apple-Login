@@ -304,7 +304,7 @@ public class AppleUtils {
             SignedJWT signedJWT = SignedJWT.parse(id_token);
             System.out.println("=====payload1"+signedJWT );
             ReadOnlyJWTClaimsSet getPayload = signedJWT.getJWTClaimsSet();
-            System.out.println("=====payload2" );
+            System.out.println("=====payload2"+getPayload);
             ObjectMapper objectMapper = new ObjectMapper();
             Payload payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), Payload.class);
             System.out.println("=====payload3"+payload );
