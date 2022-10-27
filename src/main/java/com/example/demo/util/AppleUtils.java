@@ -153,14 +153,18 @@ public class AppleUtils {
 //            jwt.sign(jwsSigner);
             System.out.println("=====새로운 시도 1=====");
             PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(readPrivateKey());
-            System.out.println("=====새로운 시도 1=====");
+            System.out.println("=====새로운 시도 5=====");
 
 
             try{
                 KeyFactory kf = KeyFactory.getInstance("EC");
+                System.out.println("=====새로운 시도 6=====");
                 ECPrivateKey ecPrivateKey = (ECPrivateKey) kf.generatePrivate(spec);
+                System.out.println("=====새로운 시도 7=====");
                 JWSSigner jwsSigner = new ECDSASigner(ecPrivateKey.getS());
+                System.out.println("=====새로운 시도 8=====");
                 jwt.sign(jwsSigner);
+                System.out.println("=====새로운 시도 9=====");
             }catch (NoSuchAlgorithmException e) {
                 e.printStackTrace();
             }catch (InvalidKeySpecException e){
@@ -198,6 +202,8 @@ public class AppleUtils {
                 System.out.println("=====새로운 시도 3=====");
                 PemObject pemObject = pemReader.readPemObject();
                 content = pemObject.getContent();
+                System.out.println("=====새로운 시도 4=====");
+                System.out.println(content+"=====content=====");
             }
         } catch (IOException e) {
             e.printStackTrace();
