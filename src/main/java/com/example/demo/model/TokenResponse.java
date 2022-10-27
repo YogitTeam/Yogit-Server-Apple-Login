@@ -48,4 +48,6 @@ public class TokenResponse {
         this.token_type = token_type;
     }
 
+    public TokenResponse() {
+    }
 }

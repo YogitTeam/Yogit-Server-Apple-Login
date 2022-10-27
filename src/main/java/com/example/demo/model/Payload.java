@@ -138,4 +138,7 @@ public class Payload {
                 ", nonce_supported=" + nonce_supported +
                 '}';
     }
+
+    public Payload() {
+    }
 }

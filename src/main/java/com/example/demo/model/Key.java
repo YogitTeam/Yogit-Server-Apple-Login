@@ -57,4 +57,6 @@ public class Key {
         this.e = e;
     }
 
+    public Key() {
+    }
 }

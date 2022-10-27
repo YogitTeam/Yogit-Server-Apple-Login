@@ -14,4 +14,6 @@ public class Keys {
         this.keys = keys;
     }
 
+    public Keys() {
+    }
 }

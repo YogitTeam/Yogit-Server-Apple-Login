@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+
 public class AppsResponse {
 
     private String payload;
@@ -12,4 +13,6 @@ public class AppsResponse {
         this.payload = payload;
     }
 
+    public AppsResponse() {
+    }
 }
