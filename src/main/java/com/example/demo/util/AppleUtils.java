@@ -4,6 +4,7 @@ import com.example.demo.model.Key;
 import com.example.demo.model.Keys;
 import com.example.demo.model.TokenResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.nimbusds.jose.*;
@@ -307,6 +308,8 @@ public class AppleUtils {
             ReadOnlyJWTClaimsSet getPayload = signedJWT.getJWTClaimsSet();
             System.out.println("=====payload2"+getPayload);
             ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT); // null 값 허용
+            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
             Payload payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), Payload.class);
             System.out.println("=====payload3"+payload );
             if (payload != null) {
