@@ -115,7 +115,6 @@ public class AppleController {
         logger.debug("client_secret ‣ " + client_secret);
         logger.debug("================================");
 
-        System.out.println(appleService.requestCodeValidations(client_secret, code, null));
         System.out.println("7-------------");
 
         return appleService.requestCodeValidations(client_secret, code, null);
