@@ -22,6 +22,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.security.InvalidKeyException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
@@ -180,11 +182,13 @@ public class AppleUtils {
      * @return Private Key
      */
     private byte[] readPrivateKey() {
+        ClassPathResource resource = new ClassPathResource(KEY_PATH);
 
-        Resource resource = new ClassPathResource(KEY_PATH);
+
+//        Resource resource = new ClassPathResource(KEY_PATH);
         byte[] content = null;
 
-        try (FileReader keyReader = new FileReader(resource.getURI().getPath());
+        try (Reader keyReader = new InputStreamReader(resource.getInputStream());
              PemReader pemReader = new PemReader(keyReader)) {
             {
                 PemObject pemObject = pemReader.readPemObject();
