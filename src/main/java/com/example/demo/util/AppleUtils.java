@@ -201,6 +201,7 @@ public class AppleUtils {
             {
                 System.out.println("=====새로운 시도 3=====");
                 PemObject pemObject = pemReader.readPemObject();
+                System.out.println("=====새로운 시도 3.5=====");
                 content = pemObject.getContent();
                 System.out.println("=====새로운 시도 4=====");
                 System.out.println(content+"=====content=====");
