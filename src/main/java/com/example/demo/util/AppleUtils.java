@@ -265,9 +265,15 @@ public class AppleUtils {
     private TokenResponse getTokenResponse(Map<String, String> tokenRequest) {
 
         try {
+            System.out.println("======tokenRequest"+tokenRequest);
             String response = HttpClientUtils.doPost(AUTH_TOKEN_URL, tokenRequest);
-            ObjectMapper objectMapper = new ObjectMapper();
+            System.out.println("======response"+response);
+
+            ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false); // null허용 설정 추가
+            System.out.println("======objectMapper"+objectMapper);
+
             TokenResponse tokenResponse = objectMapper.readValue(response, TokenResponse.class);
+            System.out.println("======tokenResponse"+tokenResponse);
 
             if (tokenRequest != null) {
                 return tokenResponse;
