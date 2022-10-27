@@ -308,7 +308,7 @@ public class AppleUtils {
             System.out.println("=====payload1"+signedJWT );
             ReadOnlyJWTClaimsSet getPayload = signedJWT.getJWTClaimsSet();
             System.out.println("=====payload2"+getPayload);
-            ObjectMapper objectMapper = new ObjectMapper();
+            ObjectMapper objectMapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES,false);
 //            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT); // null 값 허용
 //            objectMapper.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
 //            Payload payload = objectMapper.readValue(getPayload.toJSONObject().toJSONString(), Payload.class);
