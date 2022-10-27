@@ -23,8 +23,12 @@ import org.springframework.stereotype.Component;
 import java.io.FileReader;
 import java.io.IOException;
 import java.security.InvalidKeyException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.PKCS8EncodedKeySpec;
 import java.text.ParseException;
 import java.util.Date;
 import java.util.HashMap;
@@ -141,14 +145,29 @@ public class AppleUtils {
         SignedJWT jwt = new SignedJWT(header, claimsSet);
 
         try {
-            ECPrivateKey ecPrivateKey = new ECPrivateKeyImpl2(readPrivateKey());
-            JWSSigner jwsSigner = new ECDSASigner(ecPrivateKey.getS());
+//            ECPrivateKey ecPrivateKey = new ECPrivateKeyImpl2(readPrivateKey());
+//            JWSSigner jwsSigner = new ECDSASigner(ecPrivateKey.getS());
+//
+//            jwt.sign(jwsSigner);
 
-            jwt.sign(jwsSigner);
+            PKCS8EncodedKeySpec spec = new PKCS8EncodedKeySpec(readPrivateKey());
 
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (JOSEException e) {
+            try{
+                KeyFactory kf = KeyFactory.getInstance("EC");
+                ECPrivateKey ecPrivateKey = (ECPrivateKey) kf.generatePrivate(spec);
+                JWSSigner jwsSigner = new ECDSASigner(ecPrivateKey.getS());
+                jwt.sign(jwsSigner);
+            }catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            }catch (InvalidKeySpecException e){
+                e.printStackTrace();
+            }
+
+        }
+//        catch (InvalidKeyException e) {
+//            e.printStackTrace();
+//        }
+        catch (JOSEException e) {
             e.printStackTrace();
         }
 
